@@ -4,9 +4,10 @@ from unittest import TestCase
 from unittest.mock import patch
 import requests
 import json
+import hashlib
 
 from services.get_regions import get_regions
-from services.get_countries import get_countries
+from services.get_countries import Countries
 from utils.request_handler import RequestHandler
 
 FAKE_URL = "https://fake.com"
@@ -80,9 +81,10 @@ class TestGetCountries(TestCase):
     def test_retrieve_regions(self, mock_request_handler):
         """ Test countries list """
         mock_request_handler.return_value = self.mock_response
-        countries = get_countries(["Asia"])
+        countries = Countries.get_countries(["Asia"])
         self.assertEqual(1, len(countries))
-        self.assertEqual("Japanese", countries[0].get("Language"))
+        self.assertEqual(
+            hashlib.sha1(b"Japanese").hexdigest(), countries[0].get("Language"))
 
 
 if __name__ == '__main__':

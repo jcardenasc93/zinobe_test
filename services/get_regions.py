@@ -26,7 +26,5 @@ def get_regions():
         response = RequestHandler(url, headers).return_response()
         if response:
             # Extracts regions from retrieved info
-            regions = list(
-                set([country["region"] for country in response
-                    ]))
+            regions = list(set([country["region"] for country in response]))
             return regions
