@@ -12,7 +12,9 @@ def main():
     regions = get_regions()
     if regions:
         countries = Countries.get_countries(regions)
-        DataAnalysis(countries)
+        print(countries)
+        countries_data = DataAnalysis(countries)
+        countries_data.time_statistics()
     else:
         print("Cannot retrieve regions")
 
