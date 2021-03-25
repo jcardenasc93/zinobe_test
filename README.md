@@ -34,11 +34,11 @@ This is the entry point of the app
 
 Here you can found all the services layers required to handle different processes that are invoked in the main file
 
-#### get_regions
+#### <a name='get_regions'></a>get_regions
 
 This service implements the layer to module the request to the [first API](https://rapidapi.com/apilayernet/api/rest-countries-v1) in order to retrieve all the regions from that source
 
-#### get_countries
+#### <a name='get_countries'></a>get_countries
 
 Same as the previous layer, this module send a request to a [second API](https://restcountries.eu/) to retrieve information related to the first country coincidence that belongs to each one of the regions get previously
 
