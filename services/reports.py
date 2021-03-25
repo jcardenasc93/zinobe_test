@@ -29,3 +29,12 @@ class DBManager:
         self.cursor.executemany(self.insert_query, data)
         self.connection.commit()
 
+
+class JSONManager:
+    """ This class is used to create a json file """
+
+    @classmethod
+    def create_json(cls, data, filename="data.json"):
+        """ Creates JSON file """
+        with open(filename, 'w', encoding='utf-8') as file:
+            json.dump(data, file, indent=4, ensure_ascii=False)

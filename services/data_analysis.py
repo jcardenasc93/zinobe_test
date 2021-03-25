@@ -12,13 +12,13 @@ class DataAnalysis:
         its average, the minimum and maximum
         """
         TIME_KEY = 'Time'
-        self.total_time = self.countries_df[TIME_KEY].sum()
+        self.total_time = round(self.countries_df[TIME_KEY].sum(), 2)
         self.statistics_df = self.countries_df[TIME_KEY].describe()
         self._time_report()
 
     def _time_report(self):
         """ Generates the time statistics report """
-        average = self.statistics_df['mean']
+        average = round(self.statistics_df['mean'], 2)
         min_time = self.statistics_df['min']
         max_time = self.statistics_df['max']
 

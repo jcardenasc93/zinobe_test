@@ -51,4 +51,4 @@ class Countries:
 
     @classmethod
     def calcs_elapsed_time(cls, start_time):
-        return time.time() - start_time
+        return round(time.time() - start_time, 2)
